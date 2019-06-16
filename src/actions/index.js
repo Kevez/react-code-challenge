@@ -1,9 +1,24 @@
 export const types = {
+  GET_CATEGORIES: 'GET_CATEGORIES',
+  GET_CATEGORIES_SUCCESS: 'GET_CATEGORIES_SUCCESS',
   PERFORM_SEARCH: 'PERFORM_SEARCH',
   PERFORM_SEARCH_SUCCESS: 'PERFORM_SEARCH_SUCCESS'
 };
 
 export const actions = ({
+  getCategories: () => {
+    return {
+      type: types.GET_CATEGORIES
+    }
+  },
+  
+  getCategoriesSuccess: (response) => {
+    return {
+      type: types.GET_CATEGORIES_SUCCESS,
+      response: response
+    }
+  },
+  
   performSearch: (query, offset) => {
     return {
       type: types.PERFORM_SEARCH,
@@ -20,32 +35,3 @@ export const actions = ({
     }
   }
 });
-
-/*import axios from 'axios';
-
-const API_ENDPOINT_GET_CATEGORIES = 'https://d1i9eedhsgvpdh.cloudfront.net/production-plentific-static/api-cache/find-a-pro/api/v1/categories/all.json';
-const API_ENDPOINT_SEARCH = 'https://demo.plentific.com/find-a-pro/api/v2/public/pro/search-pros/';
-const PAGINATION_LIMIT = 20;
-
-export const getCategories = () => {
-  return (dispatch) => {
-    return axios.get('./data/categories.json')
-    .then(response => {
-      dispatch(getCategoriesSuccess(response))
-    })
-    .catch(error => {
-      throw(error);
-    });
-  };
-}
-
-export const getCategoriesSuccess = (response) => {
-  debugger
-  return {
-    type: 'GET_CATEGORIES_SUCCESS',
-    payload: {
-      categories: [1, 2, 3, 4, 5]
-    }
-  }
-};
-*/

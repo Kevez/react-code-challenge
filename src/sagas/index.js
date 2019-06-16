@@ -5,6 +5,11 @@ import {actions, types} from '../actions';
 const API_SEARCH_ENDPOINT = 'https://demo.plentific.com/find-a-pro/api/v2/public/pro/search-pros/';
 const PAGINATION_LIMIT = 20;
 
+function* getCategories() {
+  const response = yield axios.get('./data/categories.json');
+  yield put(actions.getCategoriesSuccess(response))
+}
+
 function* performSearch(action) {
   const response = yield axios.post(API_SEARCH_ENDPOINT, action.query, {
     headers: {
@@ -15,6 +20,10 @@ function* performSearch(action) {
   });
   
   yield put(actions.performSearchSuccess(response, action.query))
+}
+
+export function* watchGetCategories() {
+  yield takeLatest(types.GET_CATEGORIES, getCategories)
 }
 
 export function* watchPerformSearch() {

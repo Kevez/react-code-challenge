@@ -30,7 +30,7 @@ class SearchBar extends Component {
   render() {
     let categoryOptions = this.props.categories.map(category => {
       return (
-        <option value={category}>{category}</option>
+        <option value={category.id}>{category.name}</option>
       );
     });
     
@@ -40,7 +40,6 @@ class SearchBar extends Component {
           <label htmlFor="selectCategory">Category</label>
           <select id="selectCategory" name="category_id" class="form-control" onChange={this.handleOnChange}>
             <option selected>--- Please select ---</option>
-            <option value="1">1</option>
             {categoryOptions}
           </select>
         </div>

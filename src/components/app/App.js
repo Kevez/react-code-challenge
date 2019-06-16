@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    //this.props.getCategories();
+    this.props.getCategories();
   }
   
   handleSubmit(searchData, offset) {
@@ -56,8 +56,12 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    performSearch: (query, offset) =>
-      dispatch(actions.performSearch(query, offset))
+    performSearch: (query, offset) => {
+      dispatch(actions.performSearch(query, offset));
+    },
+    getCategories: () => {
+      dispatch(actions.getCategories());
+    }
   };
 };
 

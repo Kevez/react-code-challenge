@@ -14,9 +14,11 @@ function results(state = {resultsToShow: [], totalResults: 0}, action) {
 
 function categories(state = [], action) {
   if (action.type === 'GET_CATEGORIES_SUCCESS') {
-    return {
-      categories: action.payload.categories
-    };
+    const nonHiddenCategories = action.response.data.filter(category => {
+      return category.hidden === false
+    });
+    
+    return nonHiddenCategories;
   }
   
   return state;
