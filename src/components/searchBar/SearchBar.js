@@ -6,7 +6,9 @@ class SearchBar extends Component {
     
     this.state = {
       "category_id": null,
-      "location": ""
+      "location": "",
+      "category_id_error": false,
+      "location_error": false,
     };
     
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -24,7 +26,30 @@ class SearchBar extends Component {
   
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit(this.state, 0);
+    let valid = true;
+  
+    this.setState({
+      ['category_id_error']: false,
+      ['location_error']: false
+    });
+    
+    if (this.state['category_id'] === null) {
+      valid = false;
+      this.setState({
+        ['category_id_error']: true
+      });
+    }
+    
+    if (this.state['location'] === '') {
+      valid = false;
+      this.setState({
+        ['location_error']: true
+      });
+    }
+    
+    if (valid) {
+      this.props.onSubmit(this.state, 0);
+    }
   }
   
   render() {
@@ -38,14 +63,14 @@ class SearchBar extends Component {
       <form action="#">
         <div class="form-block">
           <label htmlFor="selectCategory">Category</label>
-          <select id="selectCategory" name="category_id" class="form-control" onChange={this.handleOnChange}>
-            <option selected>--- Please select ---</option>
+          <select className={this.state.category_id_error ? "error" : ""} id="selectCategory" name="category_id" class="form-control" onChange={this.handleOnChange}>
+            <option selected disabled>--- Please select ---</option>
             {categoryOptions}
           </select>
         </div>
         <div class="form-block">
           <label htmlFor="inputPostcode">Postcode</label>
-          <input class="form-control" id="inputPostcode" name="location" onChange={this.handleOnChange}/>
+          <input className={this.state.location_error ? "error" : ""} id="inputPostcode" name="location" required onChange={this.handleOnChange}/>
         </div>
         <div class="form-block">
           <button type="submit" class="btn btn-primary mb-2" onClick={this.handleSubmit}>Submit</button>

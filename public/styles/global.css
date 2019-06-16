@@ -117,3 +117,7 @@ td {
     background: #ddd;
     color: #000;
 }
+
+.error {
+    border: 1px solid red;
+}
