@@ -1,6 +1,12 @@
 import {combineReducers} from 'redux';
 
-function results(state = {resultsToShow: [], totalResults: 0, errorMessage: null}, action) {
+const RESULTS_INITIAL_STATE = {
+  resultsToShow: [],
+  totalResults: 0,
+  errorMessage: null
+};
+
+function results(state = RESULTS_INITIAL_STATE, action) {
   if (action.type === 'PERFORM_SEARCH_SUCCESS') {
     return {
       resultsToShow: action.response.data.response.pros,
@@ -11,7 +17,7 @@ function results(state = {resultsToShow: [], totalResults: 0, errorMessage: null
   
   if (action.type === 'PERFORM_SEARCH_ERROR') {
     return {
-      ...state,
+      ...RESULTS_INITIAL_STATE,
       errorMessage: action.errorMessage
     };
   }
