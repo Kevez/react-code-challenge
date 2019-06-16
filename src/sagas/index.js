@@ -11,15 +11,19 @@ function* getCategories() {
 }
 
 function* performSearch(action) {
-  const response = yield axios.post(API_SEARCH_ENDPOINT, action.query, {
-    headers: {
-      'Content-Type': 'application/json',
-      'x-pagination-offset': action.offset,
-      'x-pagination-limit': PAGINATION_LIMIT,
-    }
-  });
+  try {
+    const response = yield axios.post(API_SEARCH_ENDPOINT, action.query, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-pagination-offset': action.offset,
+        'x-pagination-limit': PAGINATION_LIMIT,
+      }
+    });
   
-  yield put(actions.performSearchSuccess(response, action.query))
+    yield put(actions.performSearchSuccess(response, action.query));
+  } catch(error) {
+    yield put(actions.performSearchError(error.response.data.message));
+  }
 }
 
 export function* watchGetCategories() {

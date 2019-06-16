@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Pagination from '../pagination/Pagination';
 import SearchBar from '../searchBar/SearchBar';
 import Results from '../results/Results';
+import Error from '../error/Error';
 import {actions} from '../../actions';
 
 // app config
@@ -34,6 +35,7 @@ class App extends React.Component {
           <hr/>
           <SearchBar categories={this.props.categories} onSubmit={this.handleSubmit.bind(this)}/>
           {this.props.results.resultsToShow.length > 0 && <Results results={this.props.results.resultsToShow}/>}
+          {this.props.results.errorMessage && <Error message={this.props.results.errorMessage}/>}
           {this.props.results.resultsToShow.length > 0 &&
           <Pagination items={this.props.results}
                       totalResults={this.props.results.totalResults}

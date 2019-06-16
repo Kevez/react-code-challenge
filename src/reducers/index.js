@@ -1,11 +1,18 @@
 import {combineReducers} from 'redux';
 
-function results(state = {resultsToShow: [], totalResults: 0}, action) {
+function results(state = {resultsToShow: [], totalResults: 0, errorMessage: null}, action) {
   if (action.type === 'PERFORM_SEARCH_SUCCESS') {
     return {
       resultsToShow: action.response.data.response.pros,
       totalResults: action.response.headers['x-pagination-count'],
       previousQuery: action.previousQuery
+    };
+  }
+  
+  if (action.type === 'PERFORM_SEARCH_ERROR') {
+    return {
+      ...state,
+      errorMessage: action.errorMessage
     };
   }
   
