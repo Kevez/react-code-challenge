@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding: 0 1rem;
+}
+
+.form-block {
+    display: inline-block;
+    padding: 0 0.5rem;
+    width: 33.3%;
+}
+
+label {
+    display: block;
+    padding: 0.5rem 0;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    height: calc(2.25rem + 2px);
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #e9f9ff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th {
+    background: #eee;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+td {
+    padding: 0.5rem;
+    vertical-align: top;
+}
+
+.col-1 {
+    width: 15%;
+}
+
+.col-2 {
+    width: 35%;
+}
+
+.col-3 {
+    width: 30%;
+}
+
+.col-4 {
+    width: 20%;
+}
+
+.pagination {
+    padding: 0;
+    width: 100%;
+}
+
+.pagination li {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.pagination li a {
+    padding: 0.5rem;
+    border: 1px solid #999;
+    background: #ddd;
+    color: #000;
+}
