@@ -11,10 +11,6 @@ const PAGINATION_LIMIT = 20;
 const PAGINATION_RANGE = 4;
 
 class App extends React.Component {
-  constructor() {
-    super();
-  }
-  
   componentDidMount() {
     this.props.getCategories();
   }

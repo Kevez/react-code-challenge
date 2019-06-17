@@ -30,7 +30,7 @@ class Pagination extends React.Component {
     return (
       <ul className="pagination">
         {pageNumbers.map(pageNumber =>
-          <li key={pageNumber}><a href="#" onClick={() => this.onPageChange(pageNumber)}>{pageNumber}</a></li>
+          <li key={pageNumber}><button onClick={() => this.onPageChange(pageNumber)}>{pageNumber}</button></li>
         )}
       </ul>
     );

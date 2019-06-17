@@ -5,10 +5,10 @@ class Results extends Component {
     let tableData = this.props.results.map(result => {
       return (
         <tr key={result.id}>
-          <td class="col-1">{result.id}</td>
-          <td class="col-2">{result.name}</td>
-          <td class="col-3">{result.main_address.postcode}</td>
-          <td class="col-4">{result.review_rating}</td>
+          <td className="col-1">{result.id}</td>
+          <td className="col-2">{result.name}</td>
+          <td className="col-3">{result.main_address.postcode}</td>
+          <td className="col-4">{result.review_rating.toFixed(2)}</td>
         </tr>
       );
     });
@@ -17,10 +17,10 @@ class Results extends Component {
       <table>
         <tbody>
         <tr>
-          <th class="col-1">Id</th>
-          <th class="col-2">Name</th>
-          <th class="col-3">Postcode</th>
-          <th class="col-4">Review Rating</th>
+          <th className="col-1">Id</th>
+          <th className="col-2">Name</th>
+          <th className="col-3">Postcode</th>
+          <th className="col-4">Review Rating</th>
         </tr>
           {tableData}
         </tbody>

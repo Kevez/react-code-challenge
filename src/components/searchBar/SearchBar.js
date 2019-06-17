@@ -5,10 +5,10 @@ class SearchBar extends Component {
     super(props);
     
     this.state = {
-      "category_id": null,
-      "location": "",
-      "category_id_error": false,
-      "location_error": false,
+      category_id: null,
+      location: "",
+      category_id_error: false,
+      location_error: false,
     };
     
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -29,21 +29,26 @@ class SearchBar extends Component {
     let valid = true;
   
     this.setState({
-      ['category_id_error']: false,
-      ['location_error']: false
+      ...this.state,
+      category_id_error: false,
+      location_error: false
     });
     
     if (this.state['category_id'] === null) {
       valid = false;
+      
       this.setState({
-        ['category_id_error']: true
+        ...this.state,
+        category_id_error: true
       });
     }
     
     if (this.state['location'] === '') {
       valid = false;
+      
       this.setState({
-        ['location_error']: true
+        ...this.state,
+        location_error: true
       });
     }
     
