@@ -55,25 +55,25 @@ class SearchBar extends Component {
   render() {
     let categoryOptions = this.props.categories.map(category => {
       return (
-        <option value={category.id}>{category.name}</option>
+        <option key={category.id} value={category.id}>{category.name}</option>
       );
     });
     
     return (
       <form action="#">
-        <div class="form-block">
+        <div className="form-block">
           <label htmlFor="selectCategory">Category</label>
-          <select className={this.state.category_id_error ? "error" : ""} id="selectCategory" name="category_id" class="form-control" onChange={this.handleOnChange}>
-            <option selected disabled>--- Please select ---</option>
+          <select className={this.state.category_id_error ? "error" : ""} id="selectCategory" name="category_id" onChange={this.handleOnChange}>
+            <option disabled>--- Please select ---</option>
             {categoryOptions}
           </select>
         </div>
-        <div class="form-block">
+        <div className="form-block">
           <label htmlFor="inputPostcode">Postcode</label>
           <input className={this.state.location_error ? "error" : ""} id="inputPostcode" name="location" required onChange={this.handleOnChange}/>
         </div>
-        <div class="form-block">
-          <button type="submit" class="btn btn-primary mb-2" onClick={this.handleSubmit}>Submit</button>
+        <div className="form-block">
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </div>
       </form>
     );
