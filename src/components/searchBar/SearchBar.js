@@ -34,21 +34,19 @@ class SearchBar extends Component {
       location_error: false
     });
     
-    if (this.state['category_id'] === null) {
+    if (this.state['category_id'] === "" || this.state['category_id'] === null) {
       valid = false;
       
       this.setState({
-        ...this.state,
-        category_id_error: true
+        'category_id_error': true
       });
     }
     
-    if (this.state['location'] === '') {
+    if (this.state['location'] === "") {
       valid = false;
       
       this.setState({
-        ...this.state,
-        location_error: true
+        'location_error': true
       });
     }
     
@@ -69,7 +67,7 @@ class SearchBar extends Component {
         <div className="form-block">
           <label htmlFor="selectCategory">Category</label>
           <select className={this.state.category_id_error ? "error" : ""} id="selectCategory" name="category_id" onChange={this.handleOnChange}>
-            <option disabled>--- Please select ---</option>
+            <option value=''>--- Please select ---</option>
             {categoryOptions}
           </select>
         </div>
