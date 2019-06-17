@@ -10,6 +10,11 @@ Tech used:
 - Redux for state management
 - Redux-Saga for managing application side-effects (async calls and such)
 
+## Future improvements
+
+- More tests
+- Further improve UI
+
 ## Usage
 
 Run application
